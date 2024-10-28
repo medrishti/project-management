@@ -2,7 +2,6 @@
 import { useAppDispatch, useAppSelector } from '@/app/redux';
 import { setIsSidebarCollapsed } from '@/app/state';
 import { useGetProjectsQuery } from '@/app/state/api';
-import Teams from '@/app/teams/page';
 import { AlertCircle, AlertOctagon, AlertTriangle, Briefcase, ChevronDown, ChevronUp, Home, Icon, Layers3, LockIcon, LucideIcon, Search, Settings2, ShieldAlert, User, Users, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -71,7 +70,7 @@ const Sidebar = () => {
                   key={project.id}
                   icon={Briefcase}
                   label={project.name}
-                  href={`/projects/${project.id}`}
+                  href={/projects/${project.id}}
                   />
                 ))}
                 {/*Priorities*/}
@@ -98,10 +97,10 @@ interface SidebarlinkProps {
     icon: LucideIcon;
     href: string;
     label:string;
-   // isCollapsed: boolean;
+
 }
 
-const SidebarLink = ({icon:Icon, href, label, isCollapsed}: SidebarlinkProps) => {
+const SidebarLink = ({icon:Icon, href, label}: SidebarlinkProps) => {
     const pathname = usePathname();
     const isActive = pathname === href || (pathname === '/' && href === '/dashboard');
     const screenWidth = window.innerWidth;
